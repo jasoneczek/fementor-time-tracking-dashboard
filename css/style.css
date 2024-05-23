@@ -26,8 +26,7 @@
 }
 
 :root {
-  /*    colors    */
-
+  /* COLORS */
   /* primary blue */
   --bg-primary: hsl(246, 80%, 60%);
   /* neutrals */
@@ -45,8 +44,7 @@
   --bg-social: hsl(264, 64%, 52%);
   --bg-self-care: hsl(43, 84%, 65%);
 
-  /*    typography    */
-
+  /* TYPOGRAPHY */
   /* font family */
   --ff-ss: Rubik, sans-serif;
   /* font weights */
@@ -65,8 +63,7 @@
   --fs-h2: clamp(var(--fs-1), 2vw + 0.75rem, var(--fs-3));
   --fs-curr: clamp(var(--fs-2), 3vw + 0.875rem, var(--fs-5));
 
-  /*  spacing   */
-
+  /* LAYOUT */
   /* gap */
   --g-grid-1: 1.5rem;
   --g-grid-2: 1.875rem;
@@ -74,17 +71,15 @@
   --g-fc-1: 1.125rem;
   --g-fc-2: 2.375rem;
   --g-fc-fluid: clamp(var(--g-fc-1), 2.5vw + 0.1875rem, var(--g-fc-2));
+  /* border radius */
+  --br-1: 0.9375rem;
 
   /* avatar */
   --img-s-1: 4rem;
   --img-s-2: 4.875rem;
   --img-fluid: clamp(var(--img-s-1), 1.75vw + 3.34375rem, var(--img-s-2));
-
-  /* border radius */
-  --br-1: 0.9375rem;
 }
 
-/*    reset   */
 *,
 *::before,
 *::after {
@@ -102,6 +97,7 @@ html {
 body {
   min-height: 100vh;
   line-height: 1.5;
+  position: relative;
 }
 
 h1,
@@ -156,6 +152,8 @@ main {
 .toc {
   background-color: var(--bg-secondary);
   border-radius: var(--br-1);
+  display: flex;
+  flex-direction: column;
 }
 
 [role='tabpanel'] {
@@ -216,43 +214,26 @@ main {
 
 .activity {
   position: relative;
-  background-repeat: no-repeat;
-  background-position: top right;
   padding-top: 2.375rem;
   border-radius: var(--br-1);
+  overflow: hidden;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
-.activity-work {
-  background-image: url(../images/icon-work.svg);
-  background-color: var(--bg-work);
-}
-
-.activity-play {
-  background-image: url(../images/icon-play.svg);
-  background-color: var(--bg-play);
-}
-
-.activity-study {
-  background-image: url(../images/icon-study.svg);
-  background-color: var(--bg-study);
-}
-
-.activity-exercise {
-  background-image: url(../images/icon-exercise.svg);
-  background-color: var(--bg-exercise);
-}
-
-.activity-social {
-  background-image: url(../images/icon-social.svg);
-  background-color: var(--bg-social);
-}
-
-.activity-self-care {
-  background-image: url(../images/icon-self-care.svg);
-  background-color: var(--bg-self-care);
+.activity-icon {
+  max-width: 5rem;
+  height: auto;
+  position: absolute;
+  top: -0.875rem;
+  right: 1.5rem;
+  z-index: 0;
 }
 
 .activity-content {
+  margin-top: auto;
   background-color: hsl(235, 46%, 20%);
   color: white;
   border-radius: var(--br-1);
@@ -261,6 +242,31 @@ main {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+  z-index: 1;
+}
+
+.activity-work {
+  background-color: var(--bg-work);
+}
+
+.activity-play {
+  background-color: var(--bg-play);
+}
+
+.activity-study {
+  background-color: var(--bg-study);
+}
+
+.activity-exercise {
+  background-color: var(--bg-exercise);
+}
+
+.activity-social {
+  background-color: var(--bg-social);
+}
+
+.activity-self-care {
+  background-color: var(--bg-self-care);
 }
 
 .activity-header,
@@ -286,13 +292,26 @@ main {
   color: var(--text-primary);
 }
 
+.footer {
+  position: absolute;
+  bottom: 1em;
+  display: none;
+}
+
 .attribution {
-  font-size: 11px;
+  font-size: var(--fs-sm);
   text-align: center;
+  color: var(--bg-active);
 }
 
 .attribution a {
-  color: hsl(228, 45%, 44%);
+  color: var(--bg-primary);
+  transition: all 220ms ease-in-out;
+}
+
+.attribution a:hover,
+.attribution a:focus {
+  color: var(--bg-play);
 }
 
 @media (min-width: 36rem) {
@@ -306,6 +325,7 @@ main {
 
   .user-header {
     padding: 2rem;
+    flex: 1;
   }
 
   .user-header figcaption,
@@ -314,7 +334,22 @@ main {
     align-items: start;
   }
 
+  .activity-content {
+    gap: 1.5rem;
+    padding-bottom: 2rem;
+  }
+
+  .activity-stats {
+    gap: 1rem;
+  }
+
   [role='tablist'] {
     flex-direction: column;
+    gap: 1.125rem;
+    margin: 2rem;
+  }
+
+  .footer {
+    display: block;
   }
 }
