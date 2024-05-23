@@ -33,11 +33,10 @@ document.addEventListener('DOMContentLoaded', () => {
   function updatePanel(period) {
     panel.innerHTML = '';
     data.forEach(item => {
+      const formattedTitle = item.title.toLowerCase().replace(/ /g, '-');
       const div = document.createElement('div');
       div.classList.add('activity');
-      div.classList.add(
-        `activity-${item.title.toLowerCase().replace(/ /g, '-')}`
-      );
+      div.classList.add(`activity-${formattedTitle}`);
 
       let previousText;
       switch (period) {
@@ -53,6 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       div.innerHTML = `
+        <img src="./images/icon-${formattedTitle}.svg" class="activity-icon" alt="">
         <div class="activity-content">
           <div class="activity-header">
             <h3 class="activity-title">${item.title}</h3>
