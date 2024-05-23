@@ -58,8 +58,10 @@ document.addEventListener('DOMContentLoaded', () => {
             <h3 class="activity-title">${item.title}</h3>
             <img src="../images/icon-ellipsis.svg" alt="ellipsis icon">
           </div>
-          <p class="current">${item.timeframes[period].current}hrs</p>
-          <p class="previous">${previousText}</p>
+          <div class="activity-stats">
+            <p class="current">${item.timeframes[period].current}hrs</p>
+            <p class="previous">${previousText}</p>
+          </div>
         </div>
         `;
       panel.appendChild(div);
