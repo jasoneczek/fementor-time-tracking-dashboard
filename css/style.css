@@ -1,0 +1,320 @@
+@font-face {
+  font-family: 'Rubik';
+  src: url('../fonts/Rubik-Medium.woff2') format('woff2'),
+    url('../fonts/Rubik-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rubik';
+  src: url('../fonts/Rubik-Regular.woff2') format('woff2'),
+    url('../fonts/Rubik-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rubik';
+  src: url('../fonts/Rubik-Light.woff2') format('woff2'),
+    url('../fonts/Rubik-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /*    colors    */
+
+  /* primary blue */
+  --bg-primary: hsl(246, 80%, 60%);
+  /* neutrals */
+  --bg-dark: hsl(226, 43%, 10%);
+  --bg-secondary: hsl(235, 46%, 20%);
+  --bg-active: hsl(235, 45%, 61%);
+  --text-primary: hsl(236, 100%, 87%);
+  --text-tab: var(--bg-active);
+  --white: hsl(0, 0%, 100%);
+  /* activities */
+  --bg-work: hsl(15, 100%, 70%);
+  --bg-play: hsl(195, 74%, 62%);
+  --bg-study: hsl(348, 100%, 68%);
+  --bg-exercise: hsl(145, 58%, 55%);
+  --bg-social: hsl(264, 64%, 52%);
+  --bg-self-care: hsl(43, 84%, 65%);
+
+  /*    typography    */
+
+  /* font family */
+  --ff-ss: Rubik, sans-serif;
+  /* font weights */
+  --fw-l: 300;
+  --fw-r: 400;
+  --fw-m: 500;
+  /* font-sizes */
+  --fs-sm: 0.9375rem;
+  --fs-b: 1.125rem;
+  --fs-1: 1.5rem;
+  --fs-2: 2rem;
+  --fs-3: 2.5rem;
+  --fs-4: 3rem;
+  --fs-5: 3.5rem;
+  /* fluid font sizes */
+  --fs-h2: clamp(var(--fs-1), 2vw + 0.75rem, var(--fs-3));
+  --fs-curr: clamp(var(--fs-2), 3vw + 0.875rem, var(--fs-5));
+
+  /*  spacing   */
+
+  /* gap */
+  --g-grid-1: 1.5rem;
+  --g-grid-2: 1.875rem;
+  --g-grid-fluid: clamp(var(--g-grid-1), 0.75vw + 1.21875rem, var(--g-grid-2));
+  --g-fc-1: 1.125rem;
+  --g-fc-2: 2.375rem;
+  --g-fc-fluid: clamp(var(--g-fc-1), 2.5vw + 0.1875rem, var(--g-fc-2));
+
+  /* avatar */
+  --img-s-1: 4rem;
+  --img-s-2: 4.875rem;
+  --img-fluid: clamp(var(--img-s-1), 1.75vw + 3.34375rem, var(--img-s-2));
+
+  /* border radius */
+  --br-1: 0.9375rem;
+}
+
+/*    reset   */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+  line-height: 1.1;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+input,
+button,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+body {
+  background-color: var(--bg-dark);
+  font-family: var(--ff-ss);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  width: min(100% - 3rem, 69.375rem);
+  margin: 5rem auto;
+  display: grid;
+  gap: var(--g-grid-fluid);
+  font-size: var(--fs-b);
+  font-weight: var(--fw-r);
+}
+
+.toc {
+  background-color: var(--bg-secondary);
+  border-radius: var(--br-1);
+}
+
+[role='tabpanel'] {
+  display: grid;
+  gap: var(--g-grid-fluid);
+}
+
+.user-header {
+  background-color: var(--bg-primary);
+  border-radius: var(--br-1);
+  padding: 1.875rem 1.75rem;
+}
+
+.user-header figcaption {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: var(--g-fc-fluid);
+}
+
+.avatar {
+  height: var(--img-fluid);
+  width: var(--img-fluid);
+  border-radius: 50%;
+  border: 2px solid var(--white);
+}
+
+.toc-heading {
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-l);
+  color: var(--white);
+}
+
+.toc-heading span {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-r);
+  color: var(--text-primary);
+  display: block;
+  margin-bottom: 0.625rem;
+}
+
+[role='tablist'] {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  margin: 1.5rem 1.75rem;
+}
+
+[role='tab'] {
+  text-decoration: none;
+  color: var(--bg-active);
+  cursor: pointer;
+}
+
+[role='tab'][aria-selected='true'] {
+  color: var(--white);
+}
+
+.activity {
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: top right;
+  padding-top: 2.375rem;
+  border-radius: var(--br-1);
+}
+
+.activity-work {
+  background-image: url(../images/icon-work.svg);
+  background-color: var(--bg-work);
+}
+
+.activity-play {
+  background-image: url(../images/icon-play.svg);
+  background-color: var(--bg-play);
+}
+
+.activity-study {
+  background-image: url(../images/icon-study.svg);
+  background-color: var(--bg-study);
+}
+
+.activity-exercise {
+  background-image: url(../images/icon-exercise.svg);
+  background-color: var(--bg-exercise);
+}
+
+.activity-social {
+  background-image: url(../images/icon-social.svg);
+  background-color: var(--bg-social);
+}
+
+.activity-self-care {
+  background-image: url(../images/icon-self-care.svg);
+  background-color: var(--bg-self-care);
+}
+
+.activity-content {
+  background-color: hsl(235, 46%, 20%);
+  color: white;
+  border-radius: var(--br-1);
+  padding-inline: 2rem;
+  padding-block: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.activity-header,
+.activity-stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.activity-title {
+  font-size: var(--fs-b);
+  font-weight: var(--fw-m);
+}
+
+.current {
+  font-size: var(--fs-curr);
+  font-weight: var(--fw-l);
+  line-height: 1.1;
+}
+
+.previous {
+  font-size: var(--fs-sm);
+  color: var(--text-primary);
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+@media (min-width: 36rem) {
+  main {
+    grid-template-columns: 1fr 3fr;
+  }
+
+  [role='tabpanel'] {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .user-header {
+    padding: 2rem;
+  }
+
+  .user-header figcaption,
+  .activity-stats {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  [role='tablist'] {
+    flex-direction: column;
+  }
+}
