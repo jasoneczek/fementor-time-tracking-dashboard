@@ -34,9 +34,9 @@ document.addEventListener('DOMContentLoaded', () => {
     panel.innerHTML = '';
     data.forEach(item => {
       const formattedTitle = item.title.toLowerCase().replace(/ /g, '-');
-      const div = document.createElement('div');
-      div.classList.add('activity');
-      div.classList.add(`activity-${formattedTitle}`);
+      const li = document.createElement('li');
+      li.classList.add('activity');
+      li.classList.add(`activity-${formattedTitle}`);
 
       let previousText;
       switch (period) {
@@ -51,11 +51,15 @@ document.addEventListener('DOMContentLoaded', () => {
           break;
       }
 
-      div.innerHTML = `
+      li.innerHTML = `
         <img src="./images/icon-${formattedTitle}.svg" class="activity-icon" alt="">
         <div class="activity-content">
           <div class="activity-header">
-            <h3 class="activity-title">${item.title}</h3>
+            <h3 class="activity-title">
+              <a href="#" class="activity-link">
+                ${item.title}
+              </a>
+            </h3>
             <img src="../images/icon-ellipsis.svg" alt="ellipsis icon">
           </div>
           <div class="activity-stats">
@@ -64,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
         </div>
         `;
-      panel.appendChild(div);
+      panel.appendChild(li);
     });
   }
 
