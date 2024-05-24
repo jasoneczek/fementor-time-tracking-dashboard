@@ -159,6 +159,7 @@ main {
 [role='tabpanel'] {
   display: grid;
   gap: var(--g-grid-fluid);
+  list-style-type: none;
 }
 
 .user-header {
@@ -243,6 +244,7 @@ main {
   flex-direction: column;
   gap: 0.75rem;
   z-index: 1;
+  max-width: 100%;
 }
 
 .activity-work {
@@ -276,9 +278,12 @@ main {
   align-items: center;
 }
 
-.activity-title {
+.activity-link {
+  position: absolute;
   font-size: var(--fs-b);
   font-weight: var(--fw-m);
+  color: var(--white);
+  text-decoration: none;
 }
 
 .current {
