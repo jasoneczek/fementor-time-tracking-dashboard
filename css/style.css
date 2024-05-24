@@ -33,6 +33,7 @@
   --bg-dark: hsl(226, 43%, 10%);
   --bg-secondary: hsl(235, 46%, 20%);
   --bg-active: hsl(235, 45%, 61%);
+  --bg-hover: hsl(236, 41%, 34%);
   --text-primary: hsl(236, 100%, 87%);
   --text-tab: var(--bg-active);
   --white: hsl(0, 0%, 100%);
@@ -245,6 +246,11 @@ main {
   gap: 0.75rem;
   z-index: 1;
   max-width: 100%;
+  transition: all 220ms ease-in-out;
+}
+
+.activity-content:hover {
+  background-color: var(--bg-hover);
 }
 
 .activity-work {
@@ -279,11 +285,17 @@ main {
 }
 
 .activity-link {
-  position: absolute;
   font-size: var(--fs-b);
   font-weight: var(--fw-m);
   color: var(--white);
   text-decoration: none;
+}
+
+.activity-link::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
 }
 
 .current {
