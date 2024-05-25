@@ -2,7 +2,8 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   const tabs = document.querySelectorAll('[role="tab"]');
-  const panel = document.querySelector('[role="tabpanel"]');
+  const tabList = document.querySelector('[role="tablist"]');
+  const panelList = document.querySelector('.stats');
   let data;
 
   fetch('data.json')
@@ -28,10 +29,54 @@ document.addEventListener('DOMContentLoaded', () => {
       updatePanel(period);
       setActiveTab(tab);
     });
+
+    tab.addEventListener('keydown', e => {
+      const index = Array.prototype.indexOf.call(tabs, e.currentTarget);
+      let dir = null;
+
+      switch (e.which) {
+        case 37:
+          dir = 'left';
+          break;
+        case 38:
+          dir = 'up';
+          break;
+        case 39:
+          dir = 'right';
+          break;
+        case 40:
+          dir = 'down';
+          break;
+      }
+
+      if (dir !== null) {
+        e.preventDefault();
+        if (dir === 'down' || dir === 'up') {
+          const nextTabIndex =
+            dir === 'down'
+              ? (index + 1) % tabs.length
+              : (index - 1 + tabs.length) % tabs.length;
+          tabs[nextTabIndex].focus();
+          const period = tabs[nextTabIndex].getAttribute('data-period');
+          updatePanel(period);
+          setActiveTab(tabs[nextTabIndex]);
+        } else {
+          const newIndex =
+            dir === 'left'
+              ? (index - 1 + tabs.length) % tabs.length
+              : (index + 1) % tabs.length;
+          const newTab = tabs[newIndex];
+          newTab.focus();
+          const period = newTab.getAttribute('data-period');
+          updatePanel(period);
+          setActiveTab(newTab);
+        }
+      }
+    });
   });
 
   function updatePanel(period) {
-    panel.innerHTML = '';
+    panelList.innerHTML = '';
     data.forEach(item => {
       const formattedTitle = item.title.toLowerCase().replace(/ /g, '-');
       const li = document.createElement('li');
@@ -68,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
         </div>
         `;
-      panel.appendChild(li);
+      panelList.appendChild(li);
     });
   }
 
@@ -78,4 +123,16 @@ document.addEventListener('DOMContentLoaded', () => {
       tab.setAttribute('tabindex', tab === activeTab ? '0' : '-1');
     });
   }
+
+  function updateTabListOrientation() {
+    if (window.innerWidth >= 576) {
+      tabList.setAttribute('aria-orientation', 'vertical');
+    } else {
+      tabList.setAttribute('aria-orientation', 'horizontal');
+    }
+  }
+
+  updateTabListOrientation();
+
+  window.addEventListener('resize', updateTabListOrientation);
 });
