@@ -24,21 +24,24 @@
       </figure>
       <ul role="tablist">
         <li role="presentation">
-          <a role="tab" href="#panel" id="daily-tab" data-period="daily" aria-selected="true">Daily</a>
+          <a role="tab" href="#panel" id="daily-tab" data-period="daily" aria-controls="daily-panel"
+            aria-selected="true">Daily</a>
         </li>
         <li role="presentation">
-          <a role="tab" tabindex="-1" href="#panel" id="weekly-tab" data-period="weekly">Weekly</a>
+          <a role="tab" href="#panel" id="weekly-tab" data-period="weekly" aria-selected="false"
+            aria-controls="weekly-panel" tabindex="-1">Weekly</a>
         </li>
         <li role="presentation">
-          <a role="tab" tabindex="-1" href="#panel" id="monthly-tab" data-period="monthly">Monthly</a>
+          <a role="tab" href="#panel" id="monthly-tab" data-period="monthly" aria-selected="false"
+            aria-controls="monthly-panel" tabindex="-1">Monthly</a>
         </li>
       </ul>
     </div>
 
     <!-- Stats -->
-    <ul class="stats">
-      <div role="tabpanel" id="panel" aria-labelledby="daily-tab"></div>
-    </ul>
+    <div role="tabpanel" id="panel" aria-labelledby="daily-tab">
+      <ul class="stats"></ul>
+    </div>
   </main>
 
   <footer class="footer">
