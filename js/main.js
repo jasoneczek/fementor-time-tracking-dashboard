@@ -118,6 +118,14 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
         `;
       panelList.appendChild(li);
+
+      const ellipsisBtn = li.querySelector('.ellipsis-btn');
+      ellipsisBtn.addEventListener('mouseenter', () => {
+        li.classList.add('ellipsis-hovered');
+      });
+      ellipsisBtn.addEventListener('mouseleave', () => {
+        li.classList.remove('ellipsis-hovered');
+      });
     });
   }
 
