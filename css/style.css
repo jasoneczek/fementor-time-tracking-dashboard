@@ -236,7 +236,7 @@ main {
 
 .activity-content {
   margin-top: auto;
-  background-color: hsl(235, 46%, 20%);
+  background-color: var(--bg-secondary);
   color: white;
   border-radius: var(--br-1);
   padding-inline: 2rem;
@@ -249,7 +249,7 @@ main {
   transition: all 220ms ease-in-out;
 }
 
-.activity-content:hover {
+.activity:hover .activity-content {
   background-color: var(--bg-hover);
 }
 
@@ -296,6 +296,13 @@ main {
   position: absolute;
   inset: 0;
   z-index: 1;
+}
+
+.ellipsis-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 2;
 }
 
 .current {
