@@ -97,7 +97,9 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       li.innerHTML = `
-        <img src="./images/icon-${formattedTitle}.svg" class="activity-icon" alt="">
+        <div class="img-wrapper">
+          <img src="./images/icon-${formattedTitle}.svg" class="activity-icon" alt="">
+        </div>
         <div class="activity-content">
           <div class="activity-header">
             <h3 class="activity-title">
@@ -105,7 +107,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 ${item.title}
               </a>
             </h3>
-            <img src="../images/icon-ellipsis.svg" alt="ellipsis icon">
+            <button class="ellipsis-btn" aria-label="More options" aria-expanded="false">
+              <img src="../images/icon-ellipsis.svg" alt="ellipsis icon">
+            </button>
           </div>
           <div class="activity-stats">
             <p class="current">${item.timeframes[period].current}hrs</p>
