@@ -305,6 +305,10 @@ main {
   z-index: 2;
 }
 
+.activity.ellipsis-hovered .activity-content {
+  background-color: var(--bg-secondary);
+}
+
 .current {
   font-size: var(--fs-curr);
   font-weight: var(--fw-l);
