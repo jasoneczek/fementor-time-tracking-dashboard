@@ -225,34 +225,6 @@ main {
   justify-content: flex-end;
 }
 
-.activity-icon {
-  max-width: 5rem;
-  height: auto;
-  position: absolute;
-  top: -0.875rem;
-  right: 1.5rem;
-  z-index: 0;
-}
-
-.activity-content {
-  margin-top: auto;
-  background-color: var(--bg-secondary);
-  color: white;
-  border-radius: var(--br-1);
-  padding-inline: 2rem;
-  padding-block: 1.75rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  z-index: 1;
-  max-width: 100%;
-  transition: all 220ms ease-in-out;
-}
-
-.activity:hover .activity-content {
-  background-color: var(--bg-hover);
-}
-
 .activity-work {
   background-color: var(--bg-work);
 }
@@ -275,6 +247,39 @@ main {
 
 .activity-self-care {
   background-color: var(--bg-self-care);
+}
+
+.activity-icon {
+  max-width: 5rem;
+  height: auto;
+  position: absolute;
+  top: -0.875rem;
+  right: 1.5rem;
+  z-index: 0;
+}
+
+.activity-content {
+  margin-top: auto;
+  background-color: var(--bg-secondary);
+  color: white;
+  border-radius: var(--br-1);
+  padding-inline: 2rem;
+  padding-block: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  z-index: 1;
+  max-width: 100%;
+  transition: background-color 220ms ease-in-out;
+  /* position: relative; */
+}
+
+.activity-content:hover:not(:has(.ellipsis-btn:hover)) {
+  background-color: var(--bg-hover);
+}
+
+.activity-content:focus-within:not(:has(.ellipsis-btn:focus)) {
+  background-color: var(--bg-hover);
 }
 
 .activity-header,
@@ -303,10 +308,6 @@ main {
   border: none;
   cursor: pointer;
   z-index: 2;
-}
-
-.activity.ellipsis-hovered .activity-content {
-  background-color: var(--bg-secondary);
 }
 
 .current {
