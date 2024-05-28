@@ -10,8 +10,6 @@ This is a solution to the [Time tracking dashboard challenge on Frontend Mentor]
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
@@ -28,12 +26,12 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![](./images/screenshot.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Frontend Mentor](https://your-solution-url.com)
+- Live Site URL: [Live Site](https://jasoneczek-time-tracking-dashboard.netlify.app/)
 
 ## My process
 
@@ -44,36 +42,13 @@ Users should be able to:
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-### What I learned
-
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
-
-To see how you can add code snippets, see below:
-
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
-
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
-
-```js
-const proudOfThisFunc = () => {
-  console.log("🎉");
-};
-```
+- Vanilla JavaScript
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+- [How to Build Accessible Cards](https://www.nomensa.com/blog/how-build-accessible-cards-block-links/) - This article helped me understand how to build accessible card components by avoiding common pitfalls like wrapping the entire card in a link, and instead, using a script to make the whole block clickable while ensuring descriptive link text. It also provided tips on reordering content for better semantics, optimizing images for performance, and ensuring visual affordance and calls-to-action are clear and effective.
+- [Tabs Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/tabs/) - This article helped me understand the tabs pattern, including how to structure tab elements, tab lists, and tab panels, as well as how to implement keyboard interactions and WAI-ARIA roles for accessible navigation.
+- [](https://inclusive-components.design/tabbed-interfaces/) - This article futher helped me understand how to create accessible interfaces and the importance of semantic HTML and thoughtful JavaScript implementation for enhancing user experience across various devices and assistive technologies.
 
 ## Author
 
@@ -81,3 +56,5 @@ const proudOfThisFunc = () => {
 - Frontend Mentor - [@jasoneczek](https://www.frontendmentor.io/profile/jasoneczek)
 
 ## Acknowledgments
+
+Thank you [Frontend-Mentor](https://www.frontendmentor.io) for providing this amazing challenge.
