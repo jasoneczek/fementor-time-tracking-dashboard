@@ -225,27 +225,37 @@ main {
   justify-content: flex-end;
 }
 
-.activity-work {
+.activity::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 50%;
+  border-radius: var(--br-1);
+}
+
+.activity-work::before {
   background-color: var(--bg-work);
 }
 
-.activity-play {
+.activity-play::before {
   background-color: var(--bg-play);
 }
 
-.activity-study {
+.activity-study::before {
   background-color: var(--bg-study);
 }
 
-.activity-exercise {
+.activity-exercise::before {
   background-color: var(--bg-exercise);
 }
 
-.activity-social {
+.activity-social::before {
   background-color: var(--bg-social);
 }
 
-.activity-self-care {
+.activity-self-care::before {
   background-color: var(--bg-self-care);
 }
 
@@ -271,7 +281,6 @@ main {
   z-index: 1;
   max-width: 100%;
   transition: background-color 220ms ease-in-out;
-  /* position: relative; */
 }
 
 .activity-content:hover:not(:has(.ellipsis-btn:hover)) {
