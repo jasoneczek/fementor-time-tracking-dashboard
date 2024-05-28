@@ -97,13 +97,11 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       li.innerHTML = `
-        <div class="img-wrapper">
-          <img src="./images/icon-${formattedTitle}.svg" class="activity-icon" alt="">
-        </div>
+        <img src="./images/icon-${formattedTitle}.svg" class="activity-icon" alt="">
         <div class="activity-content">
           <div class="activity-header">
             <h3 class="activity-title">
-              <a href="#" class="activity-link">
+              <a href="https://www.github.com/jasoneczek" class="activity-link" target="_blank">
                 ${item.title}
               </a>
             </h3>
